@@ -52,6 +52,8 @@ public class OpenFeatureAutoConfiguration {
     private OpenFlagrConfig buildOpenFlagrConfig(OpenFeatureProperties openFlagrProperties) {
         return OpenFlagrConfig.builder()
                               .endpoint(openFlagrProperties.getBaseUrl())
+                              .username(openFlagrProperties.getUsername())
+                              .password(openFlagrProperties.getPassword())
                               .callTimeout(Duration.ofSeconds(openFlagrProperties.getCallTimeout()))
                               .connectionTimeout(Duration.ofSeconds(openFlagrProperties.getConnectionTimeout()))
                               .readTimeout(Duration.ofSeconds(openFlagrProperties.getReadTimeout()))

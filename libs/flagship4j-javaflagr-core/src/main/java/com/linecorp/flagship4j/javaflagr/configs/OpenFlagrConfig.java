@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import okhttp3.OkHttpClient;
 
 @Data
 @Builder
@@ -39,6 +40,10 @@ public class OpenFlagrConfig {
 
     private Duration callTimeout;
 
+    private String username;
+
+    private String password;
+
     public static class OpenFlagrConfigBuilder {
 
         private URI endpoint;
@@ -50,6 +55,10 @@ public class OpenFlagrConfig {
         private Duration writeTimeout;
 
         private Duration callTimeout;
+
+        private String username;
+
+        private String password;
 
         public OpenFlagrConfigBuilder endpoint(String endpoint) {
             this.endpoint = URI.create(endpoint);
@@ -101,6 +110,17 @@ public class OpenFlagrConfig {
             return this;
         }
 
+        public OpenFlagrConfigBuilder username(String username)
+        {
+            this.username = username;
+            return this;
+        }
+
+        public OpenFlagrConfigBuilder password(String password)
+        {
+            this.password = password;
+            return this;
+        }
     }
 
 }

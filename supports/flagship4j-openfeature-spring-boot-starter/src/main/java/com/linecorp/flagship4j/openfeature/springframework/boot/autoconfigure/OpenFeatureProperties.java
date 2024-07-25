@@ -15,13 +15,13 @@
  */
 package com.linecorp.flagship4j.openfeature.springframework.boot.autoconfigure;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
 @ConfigurationProperties(prefix = "flagship4j.toggle.flagr")
-public class OpenFeatureProperties {
+public class OpenFeatureProperties
+{
 
     private String baseUrl;
 
@@ -30,7 +30,10 @@ public class OpenFeatureProperties {
     private Integer readTimeout = 30;
 
     private Integer callTimeout = 30;
-    
+
     private Integer writeTimeout = 30;
-    
+
+    private String username;
+
+    private String password;
 }

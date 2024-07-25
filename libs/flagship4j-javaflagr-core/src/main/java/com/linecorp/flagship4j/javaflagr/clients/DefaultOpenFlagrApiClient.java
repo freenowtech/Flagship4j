@@ -50,6 +50,7 @@ public class DefaultOpenFlagrApiClient implements OpenFlagrApiClient {
 
     public DefaultOpenFlagrApiClient(OpenFlagrConfig openFlagrConfig) {
         this.client = new OkHttpClient.Builder()
+                .addInterceptor(new BasicAuthInterceptor(openFlagrConfig.getUsername(), openFlagrConfig.getPassword()))
                 .connectTimeout(openFlagrConfig.getConnectionTimeout())
                 .readTimeout(openFlagrConfig.getReadTimeout())
                 .writeTimeout(openFlagrConfig.getWriteTimeout())
